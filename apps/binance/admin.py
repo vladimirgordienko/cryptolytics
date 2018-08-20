@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Market
+from .models import Market, AllTickerParseExample
 
 
 class MarketAdmin(admin.ModelAdmin):
@@ -9,4 +9,11 @@ class MarketAdmin(admin.ModelAdmin):
     search_fields = ('market',)
 
 
+class AllTickerParseExampleAdmin(admin.ModelAdmin):
+
+    list_display = ['symbol', 'price']
+    search_fields = ('symbol',)
+
+
 admin.site.register(Market, MarketAdmin)
+admin.site.register(AllTickerParseExample, AllTickerParseExampleAdmin)

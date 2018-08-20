@@ -39,3 +39,20 @@ class Market(Basic):
     def save(self, *args, **kwargs):
         self.market = self.market.lower()
         return super(Market, self).save(*args, **kwargs)
+
+
+class AllTickerParseExample(Basic):
+
+    symbol = models.CharField(max_length=10, null=False, blank=False, unique=True)
+    price = models.CharField(max_length=20, null=True, blank=True)
+
+    class Meta:
+        verbose_name = 'AllTicker'
+        verbose_name_plural = 'AllTickers'
+
+    def __str__(self):
+        return self.symbol
+
+    def save(self, *args, **kwargs):
+        self.symbol = self.symbol.upper()
+        return super(AllTickerParseExample, self).save(*args, **kwargs)
